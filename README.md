@@ -10,3 +10,22 @@ We propose to study the novel task of ‘panoptic segmentation forecasting’: g
 ![Image presenting the model diagram](overview.png "Overview of the model")
 
 ## Code release coming soon!
+
+## ✏️ 📄 Citation
+
+If you found our work relevant to yours, please consider citing our paper:
+```
+@inproceedings{graber-2021-panopticforecasting,
+ title   = {Panoptic Segmentation Forecasting},
+ author  = {Colin Graber and
+            Grace Tsai and
+            Michael Firman and
+            Gabriel Brostow and
+            Alexander Schwing},
+ booktitle = {Computer Vision and Pattern Recognition ({CVPR})},
+ year = {2021}
+}
+```
+
+# 👩‍⚖️ License
+Copyright © Niantic, Inc. 2021. Patent Pending. All rights reserved. Please see the license file for terms.
