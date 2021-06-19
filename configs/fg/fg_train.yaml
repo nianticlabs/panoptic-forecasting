@@ -1,0 +1,58 @@
+# Copyright Niantic 2021. Patent Pending. All rights reserved.
+#
+# This software is licensed under the terms of the Panoptic Forecasting licence
+# which allows for non-commercial use only, the full terms of which are made
+# available in the LICENSE file.
+
+task: fg
+
+data:
+  dataset_type: fg_instance
+  data_dir: data/fg/
+  depth_dir: data/fg/
+  feats_dir: data/fg/
+  info_3d_dir: data/fg/
+  cityscapes_dir: data/fg/
+  use_cascade_depths: True
+  add_car_offscreen_loc: True
+  data_splits: ['train', 'val']
+  expand_train: True
+  filter_car_gap: 20
+  filter_car_gap_borderdist: 250
+  input_len: 3
+  max_depth: 200
+  require_most_recent: True
+  use_3d_info: True
+  use_condensed_feats: True
+
+model:
+  inp_emb_size: 32
+  instance_feat_channels: 8
+  instance_feat_hidden: 64
+  loss_type: smoothl1
+  mask_crossent_coef: 0.0
+  mask_distill_coef: 1.0
+  mask_head:
+    maskrcnn_pretrain_path: pretrained_models/fg/mask_rcnn_pretrain.pkl
+    no_finetune: true
+  num_convlstm_layers: 2
+  num_traj_out_layers: 2
+  rnn_hidden: 128
+  rnn_type: gru
+  traj_coef: 0.1
+  traj_feat_channels: 16
+  use_depth_inp: true
+  use_full_instance_traj_inp: true
+  use_odometry: true
+
+training:
+  batch_size: 32
+  clip_grad_norm: 5.0
+  lr: 0.0005
+  lr_decay_factor: 0.1
+  lr_decay_steps: 250
+  lr_scheduler_type: step
+  num_data_workers: 4
+  num_epochs: 500
+  steps_per_epoch: 400
+  use_adam: true

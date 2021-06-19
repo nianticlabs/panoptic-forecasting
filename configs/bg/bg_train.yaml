@@ -1,0 +1,57 @@
+task: bg
+
+data:
+  data_dir:
+    - data/bg/mid_term/point_cloud_static_nomoving_ind0_all/exported_predictions/
+    - data/bg/mid_term/point_cloud_static_nomoving_ind1_all/exported_predictions/
+    - data/bg/mid_term/point_cloud_static_nomoving_ind2_all/exported_predictions/
+    - data/bg/short_term/point_cloud_static_nomoving_ind0_all/exported_predictions/
+    - data/bg/short_term/point_cloud_static_nomoving_ind1_all/exported_predictions/
+    - data/bg/short_term/point_cloud_static_nomoving_ind2_all/exported_predictions/
+  gap_len: [9, 3]
+  data_inp_size: 3
+  cityscapes_dir: data/cityscapes/
+  gt_dir: data/cityscapes/gtFine_nofg/
+  depth_norm_params_file: data/bg/depth_norm_params.pt
+  load_depths: True
+  depth_h5_path: data/bg/depths_decompressed_%s.h5
+  use_depths: True
+  min_depth: 0.1
+  max_depth: 200
+  data_splits: ['train', 'val']
+  crop_size: [2048, 1024]
+  scale_min: 0.5
+  scale_max: 2.0
+  crop_size: 800
+  only_background: True
+
+# Copyright Niantic 2021. Patent Pending. All rights reserved.
+#
+# This software is licensed under the terms of the Panoptic Forecasting licence
+# which allows for non-commercial use only, the full terms of which are made
+# available in the LICENSE file.
+
+model:
+  model_type: bg
+  num_inputs: 3
+  use_depth_inps: True
+  use_dynamic_inputs: False
+  convert2onehot: True
+  seg_type: hardnet
+  hardnet:
+    pretrain_path: pretrained_models/bg/hardnet70_cityscapes_model.pkl
+
+training:
+  num_data_workers: 8
+  num_val_data_workers: 8
+
+  batch_size: 8
+  val_batch_size: 4
+  num_epochs: 180
+  steps_per_epoch: 500
+  lr: 2.0e-3
+  mom: 0.9
+  wd: 1.0e-4
+  clip_grad_norm: 5.0
+  lr_decay_factor: 0.1
+  lr_decay_steps: 100

@@ -1,0 +1,36 @@
+# Copyright Niantic 2021. Patent Pending. All rights reserved.
+#
+# This software is licensed under the terms of the Panoptic Forecasting licence
+# which allows for non-commercial use only, the full terms of which are made
+# available in the LICENSE file.
+
+task: bg
+
+data:
+
+  data_dir:
+    - data/bg/mid_term_predodom/point_cloud_static_nomoving_ind0_all/exported_predictions/
+    - data/bg/mid_term_predodom/point_cloud_static_nomoving_ind1_all/exported_predictions/
+    - data/bg/mid_term_predodom/point_cloud_static_nomoving_ind2_all/exported_predictions/
+  gap_len: [9]
+  cityscapes_dir: data/cityscapes/
+  gt_dir: data/cityscapes/gtFine_nofg/
+  depth_h5_path: data/bg/depths_decompressed_predodom_%s.h5
+
+  data_splits: ['val']
+  only_background: True
+  use_depths: True
+  load_depths: True
+  min_depth: 0.1
+  max_depth: 200
+
+model:
+  final_w: 2048
+  final_h: 1024
+  deeplabv3:
+    pretrain_path: null
+
+training:
+  num_data_workers: 2
+  batch_size: 2
+  val_batch_size: 2

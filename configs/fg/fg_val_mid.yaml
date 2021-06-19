@@ -1,0 +1,35 @@
+# Copyright Niantic 2021. Patent Pending. All rights reserved.
+#
+# This software is licensed under the terms of the Panoptic Forecasting licence
+# which allows for non-commercial use only, the full terms of which are made
+# available in the LICENSE file.
+
+task: fg
+
+data:
+  dataset_type: fg_scene
+  data_dir: data/fg/
+  depth_dir: data/fg/
+  feats_dir: data/fg/
+  info_3d_dir: data/fg/
+  cityscapes_dir: data/cityscapes/
+
+  odom_pred_dir: pretrained_models/odom/
+
+  data_splits: ['val']
+  no_feats: False
+  require_most_recent: True
+  use_cascade_depths: True
+  use_condensed_feats: True
+  use_3d_info: True
+
+training:
+  num_data_workers: 4
+  batch_size: 2
+  val_batch_size: 2
+
+model:
+  use_depth_sorting: True
+
+  mask_head:
+    maskrcnn_pretrain_path: null

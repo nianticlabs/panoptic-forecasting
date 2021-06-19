@@ -1,0 +1,32 @@
+# Copyright Niantic 2021. Patent Pending. All rights reserved.
+#
+# This software is licensed under the terms of the Panoptic Forecasting licence
+# which allows for non-commercial use only, the full terms of which are made
+# available in the LICENSE file.
+
+task: odom
+
+data:
+  dataset_type: odom
+  data_splits: ['train', 'val']
+  data_dir: data/fg/
+
+model:
+  model_type: simple_odom
+  predict_type: direct
+  normalize_input: True
+  use_normalized_loss: True
+  rnn_hidden: 128
+  loss_fn: mse
+
+training:
+  num_data_workers: 4
+  batch_size: 32
+  steps_per_epoch: 400
+  num_epochs: 200
+  lr: 5.0e-4
+  clip_grad_norm: 5.0
+  use_adam: True
+  lr_scheduler_type: step
+  lr_decay_factor: 0.1
+  lr_decay_steps: 250
