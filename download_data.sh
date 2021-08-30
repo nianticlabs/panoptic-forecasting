@@ -15,7 +15,8 @@ gsutil cp gs://niantic-lon-static/research/panoptic-forecasting/models/predicted
 gsutil cp gs://niantic-lon-static/research/panoptic-forecasting/models/predicted_odometry_val.h5 pretrained_models/odom/
 
 # Data
-mkdir -p data/fg
-mkdir -p data/bg
-gsutil -m cp gs://niantic-lon-static/research/panoptic-forecasting/preprocessed-data/fg/* data/fg/
-gsutil -m cp -r gs://niantic-lon-static/research/panoptic-forecasting/preprocessed-data/bg/* data/bg/
+mkdir -p data/
+gsutil -m cp gs://niantic-lon-static/research/panoptic-forecasting/preprocessed-data/fg.tar.gz data/
+tar -xzvf data/fg.tar.gz -C data/
+gsutil -m cp gs://niantic-lon-static/research/panoptic-forecasting/preprocessed-data/bg.tar.gz data/
+tar -xzvf data/bg.tar.gz -C data/
