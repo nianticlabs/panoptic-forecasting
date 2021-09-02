@@ -29,6 +29,7 @@ Install the code using the following command:
 
 ### Data
 - To run this code, the `gtFine_trainvaltest` dataset will need to be downloaded/decompressed from the [Cityscapes website](https://www.cityscapes-dataset.com/) into the `data/cityscapes/` directory.
+- Additionally, the panoptic segmentation labels will need to be generated. This can be done by running `python -m cityscapesscripts.preparation.createPanopticImgs --dataset-folder data/cityscapes/gtFine/`
 - The remainder of the required data can be downloaded using the script `download_data.sh`. By default, everything is downloaded into the `data/` directory. 
 - Training the background model requires generating a version of the semantic segmentation annotations where foreground regions have been removed. This can be done by running the script `scripts/preprocessing/remove_fg_from_gt.sh`.
 - Training the foreground model requires additionally downloading a pretrained MaskRCNN model. This can be found at [this link](https://dl.fbaipublicfiles.com/detectron2/Cityscapes/mask_rcnn_R_50_FPN/142423278/model_final_af9cf5.pkl). This should be saved as `pretrained_models/fg/mask_rcnn_pretrain.pkl`.
