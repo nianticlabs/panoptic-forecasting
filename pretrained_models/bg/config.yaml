@@ -1,0 +1,10 @@
+task: scene_only
+
+
+model:
+  model_type: bg
+  num_inputs: 3
+  use_depth_inps: True
+  use_dynamic_inputs: False
+  convert2onehot: True
+  seg_type: hardnet

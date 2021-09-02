@@ -1,6 +1,15 @@
 /data/
 /experiments/
-/pretrained_models/
+/pretrained_models/*
+!/pretrained_models/bg
+/pretrained_models/bg/*
+!pretrained_models/bg/config.yaml
+!/pretrained_models/fg
+/pretrained_models/fg/*
+!pretrained_models/fg/config.yaml
+!/pretrained_models/odom
+/pretrained_models/odom/*
+!pretrained_models/odom/config.yaml
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

@@ -1,0 +1,7 @@
+model:
+  loss_fn: mse
+  model_type: simple_odom
+  normalize_input: true
+  predict_type: direct
+  rnn_hidden: 128
+  use_normalized_loss: true
