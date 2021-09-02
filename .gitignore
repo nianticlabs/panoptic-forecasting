@@ -1,6 +1,6 @@
-data/
-experiments/
-pretrained_models/
+/data/
+/experiments/
+/pretrained_models/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
