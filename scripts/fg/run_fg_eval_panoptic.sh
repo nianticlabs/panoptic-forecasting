@@ -26,8 +26,8 @@ CUDA_VISIBLE_DEVICES=$GPU python -u panoptic_forecasting/experiments/export_city
       --working_dir $working_dir
 
 python -m cityscapesscripts.evaluation.evalPanopticSemanticLabeling \
-      --gt-json-file /data02/cgraber2/cityscapes/gtFine/cityscapes_panoptic_val.json \
-      --gt-folder /data02/cgraber2/cityscapes/gtFine/cityscapes_panoptic_val/ \
+      --gt-json-file data/cityscapes/gtFine/cityscapes_panoptic_val.json \
+      --gt-folder data/cityscapes/gtFine/cityscapes_panoptic_val/ \
       --prediction-json-file ${working_dir}${export_name}_val/${export_name}_val.json \
       --prediction-folder ${working_dir}${export_name}_val/${export_name}_val/ \
       --results_file ${working_dir}resultPanopticSemanticLabeling_midterm.json
@@ -48,8 +48,8 @@ bg_dir='./experiments/pretrained_bg/exported_predictions_short_trainids/'
 #      --extra_args data.background_dir $bg_dir
 #
 #python -m cityscapesscripts.evaluation.evalPanopticSemanticLabeling \
-#      --gt-json-file /data02/cgraber2/cityscapes/gtFine/cityscapes_panoptic_val.json \
-#      --gt-folder /data02/cgraber2/cityscapes/gtFine/cityscapes_panoptic_val/ \
+#      --gt-json-file data/cityscapes/gtFine/cityscapes_panoptic_val.json \
+#      --gt-folder data/cityscapes/gtFine/cityscapes_panoptic_val/ \
 #      --prediction-json-file ${working_dir}${export_name}_val/${export_name}_val.json \
 #      --prediction-folder ${working_dir}${export_name}_val/${export_name}_val/ \
 #      --results_file ${working_dir}resultPanopticSemanticLabeling_shortterm.json

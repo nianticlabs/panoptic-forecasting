@@ -6,7 +6,7 @@
 
 GPU=0 #change this if necessary
 
-config_file='./configs/bg/bg_train_tmp.yaml'
+config_file='./configs/bg/bg_train.yaml'
 working_dir='experiments/bg/'
 mkdir -p $working_dir
 CUDA_VISIBLE_DEVICES=$GPU python -u panoptic_forecasting/experiments/train_model.py \
