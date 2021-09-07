@@ -42,9 +42,9 @@ The `scripts` directory contains scripts which can be used to train and evaluate
 - `scripts/odom/run_odom_train.sh` trains the egomotion prediction model.
 - `scripts/odom/export_odom.sh` exports the odometry predictions, which can then be used during evaluation by other models
 - `scripts/bg/run_bg_train.sh` trains the background prediction model.
-- `scripts/bg/run_export_bg_val.sh` exports predictions make by the background using input reprojected point clouds which come from using predicted egomotion.
+- `scripts/bg/run_export_bg_val.sh` exports predictions make by the background using input reprojected point clouds which come from using predicted egomotion. 
 - `scripts/fg/run_fg_train.sh` trains the foreground prediction model.
-- `scripts/fg/run_fg_eval_panoptic.sh` produces final panoptic semgnetation predictions based on the trained foreground model and exported background predictions. This also uses predicted egomotion as input.
+- `scripts/fg/run_fg_eval_panoptic.sh` produces final panoptic semgnetation predictions based on the trained foreground model and exported background predictions. This also uses predicted egomotion as input. **Note that the background export script must be run before this one so that the full panoptic segmentation outputs can be generated.**
 
 We provide our pretrained foreground, background, and egomotion prediction models. The data downloading script additionally downloads these models into the directory `pretrained_models/`
 
