@@ -28,7 +28,7 @@ Install the code using the following command:
 `pip install -e ./`
 
 ### Data
-- To run this code, the `gtFine_trainvaltest` dataset will need to be downloaded/decompressed from the [Cityscapes website](https://www.cityscapes-dataset.com/) into the `data/cityscapes/` directory.
+- To run this code, the `gtFine_trainvaltest` dataset will need to be downloaded/decompressed from the [Cityscapes website](https://www.cityscapes-dataset.com/) into the `data/cityscapes/` directory. If you would like to visualize predictions, you will also need to download the `leftImg8bit` dataset.
 - Additionally, a few additional Cityscapes ground-truth files will need to be generated. This can be done by running the following commands:
   - `python -m cityscapesscripts.preparation.createPanopticImgs --dataset-folder data/cityscapes/gtFine/`
   - `CITYSCAPES_DATASET=data/cityscapes/ python -m cityscapesscripts.preparation.createTrainIdLabelImgs`
