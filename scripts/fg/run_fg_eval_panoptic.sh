@@ -33,6 +33,15 @@ python -m cityscapesscripts.evaluation.evalPanopticSemanticLabeling \
       --results_file ${working_dir}resultPanopticSemanticLabeling_midterm.json
 
 
+# Run this if you would like to visualize results
+#python -u panoptic_forecasting/experiments/viz_cityscapes_panoptic.py \
+#      ${working_dir}${export_name}_val/${export_name}_val.json \
+#      ${working_dir}${export_name}_val/${export_name}_val \
+#      data/cityscapes/leftImg8bit/val/ \
+#      ${working_dir}${export_name}_viz/ \
+#      --mask_dir data/cityscapes/gtFine/val/
+
+
 #############################################
 # Short Term
 #############################################
@@ -54,3 +63,10 @@ bg_dir='./experiments/pretrained_bg/exported_predictions_short_trainids/'
 #      --prediction-folder ${working_dir}${export_name}_val/${export_name}_val/ \
 #      --results_file ${working_dir}resultPanopticSemanticLabeling_shortterm.json
 
+# Run this if you would like to visualize results
+#python -u panoptic_forecasting/experiments/viz_cityscapes_panoptic.py \
+#      ${working_dir}${export_name}_val/${export_name}_val.json \
+#      ${working_dir}${export_name}_val/${export_name}_val \
+#      data/cityscapes/leftImg8bit/val/ \
+#      ${working_dir}${export_name}_viz/ \
+#      --mask_dir data/cityscapes/gtFine/val/

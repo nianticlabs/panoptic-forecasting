@@ -75,8 +75,6 @@ def export_results(model, dataset, split, params):
     working_dir = params['working_dir']
     no_convert = params.get('no_convert')
     print("NO CONVERT: ",no_convert)
-    viz = params['viz']
-    save_depth = params['save_depth']
     export_name = params['export_name']
     if export_name is not None:
         export_name = export_name + '_%s'%split
@@ -180,7 +178,6 @@ def export_results(model, dataset, split, params):
 if __name__ == '__main__':
     torch.backends.cudnn.benchmark=True
     extra_args=[
-        ['--viz', {'action':'store_true'}],
         ['--save_depth', {'action':'store_true'}],
         ['--export_name', {}],
         ['--no_convert', {'action':'store_true'}],
